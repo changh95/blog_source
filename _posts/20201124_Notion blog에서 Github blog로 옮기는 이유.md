@@ -4,14 +4,17 @@ date: 2020-11-24 16:26:16
 tags: blog
 categories: Blog
 excerpt: cv-learn 노션 블로그를 이전해야만 했던 이유를 소개합니다!
-mathjax: true
+mathjax: false
 ---
 
 최근 cv-learn 블로그를 쾌적한 환경으로 옮길 계획을 세웠습니다. 단순한 공부 노트에서 시작한 cv-learn인데, 이제는 어떻게 하면 좀 더 명쾌하게 컴퓨터 비전과 SLAM에 대한 정보를 전달할 수 있을지 고민을 하게 되더라구요. 우선 CV, SLAM, 그리고 cv-learn 블로그를 사랑해주신 많은 분들께 감사를 드립니다.
 
 오늘은 과거부터 현재까지 cv-learn 블로그가 어떤 변화를 거쳐왔고, 또 블로그 이사를 위해 고민하고 직접 사용해봤던 다양한 플랫폼들을 비교해보도록 하겠습니다.
 
+</br>
+
 # 0. 태초에는...
+
 
 사실 처음에 cv-learn 블로그는 단순히 제가 공부한 내용을 저장하기 위해 만든 페이지였습니다. 하지만 점차 좋아해주시는 분들이 많아지고, 저도 글을 꾸미는 것을 좋아했기 때문에 좀 더 공을 들여 만들게 되었습니다. 
 
@@ -20,16 +23,18 @@ mathjax: true
 하지만 Notion에는 큰 단점이 있습니다. 하나도 아니고 사실 몇개가 있습니다.
 
 - 첫번째로는 ***읽기 어려운 페이지 url*** 입니다. url만 봐서는 글의 내용이 전혀 추측이 가지 않으며, 제 블로그의 아이덴티티가 되는 부분을 기억하기도 꽤 어려운 편입니다. 예를 들어, 아래 url을 봤을 때, 무슨 글인지 전혀 추측이 되지 않습니다.
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d1cf663c-9f86-49f9-9e68-54230d96d852/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d1cf663c-9f86-49f9-9e68-54230d96d852/Untitled.png)
+    ![Notion blog url being ugly](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d1cf663c-9f86-49f9-9e68-54230d96d852/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20201124%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20201124T132459Z&X-Amz-Expires=86400&X-Amz-Signature=f5c4319d4900489ca0283d51b9feac3ad9e8ac6053733a0d73563b80ffde58c5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 - 두번째로는, ***Notion 글들의 url 주소는 글의 제목이 바뀌면 새로운 url 주소를 가지게 되는 점*** 입니다. 이는, 글의 제목을 조금 수정하게 된다면, 이전에 Facebook 등으로 공유했던 주소로는 해당 글에 접근할 수 없게 됩니다. 소셜 스크랩 및 공유가 된 글의 경우, 링크가 무용지물이 됩니다. 이 때문에 저는 글의 초안을 작성할 때 무조건 제목의 내용을 픽스해야했는데, 이 점이 굉장히 답답했습니다.
 - 세번째로는, ***카테고리 탐색 및 글 검색 기능***이 없습니다. 초기의 cv-learn을 보신 분들 중에 몇분은 제가 컴퓨터 비전, 몇분은 SLAM, 몇분은 의료영상을 하는 사람인줄 알고 계십니다. 사실 세 종류의 글을 전부 올리긴 했습니다만, 각각의 글만 보일 뿐이지, 제가 작성하는 포스트들의 맥락을 파악하기가 힘듭니다. 시리즈 형태의 글을 올릴 때는, 제가 페북에서 따로 모아서 올렸어야 했습니다.
 - 네번째로는, ***수식 입력이 불가능했습니다*** (이제는 됩니다!). Notion에서 가장 아쉬웠던 점은, 수식을 풀어내면서 논문 리뷰를 하고 싶었지만 inline LaTeX 입력이 안된다는 점 이였습니다. `/math` 블록만으로 수식을 풀어내기에는 글이 굉장히 길어졌습니다. 실제로 몇개의 논문을 리뷰하는 글을 적어봤지만, 너무 길어져서 '이걸 누가 읽어!' 하고 지운 적도 몇번 있습니다.
 - 마지막으로, ***페이지 로딩이 굉장히 느립니다***.
 
+</br>
+
 # 1. 노션 페이지의 진화 → [cv-learn.com](http://cv-learn.com)
 
----
+
 
 이러한 단점들 때문에 다른 플랫폼으로 옮기는 것을 고려했습니다. 
 
@@ -45,7 +50,7 @@ mathjax: true
 
 도메인을 사고 난 후, **Cloudflare 호스팅 서비스를 통해 javascript 워커 할당을해서 노션 렌더링**을 하였습니다. 이 덕분에 [http://cv-learn.com](http://cv-learn.com) 을 쓸 수 있게 되었습니다. 이 도메인 아래에서 cv-learn 블로그를 접하신 분들이 가장 많을 것이라고 생각합니다. 많은 분들께서 감사하게도 cv-learn이라는 이름을 기억해주셨고, 어느새 최신 글이 한두달 가까이 나오지 않았음에도 한달 약 1500명 정도씩 꾸준하게 방문해주시는 블로그가 되었습니다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea7d81f2-fc27-46de-8f38-d3c4cd007b79/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea7d81f2-fc27-46de-8f38-d3c4cd007b79/Untitled.png)
+![Cloudflare analytics - monthyl](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ea7d81f2-fc27-46de-8f38-d3c4cd007b79/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20201124%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20201124T132539Z&X-Amz-Expires=86400&X-Amz-Signature=7971562e2a8d618d474ac83503bc443db730137f85219703eda6913e1cfc64b3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 # 2. 새로운 플랫폼으로의 이전
 
@@ -53,7 +58,7 @@ mathjax: true
 
 하지만 Notion + Cloudflare 호스팅도 완벽하진 않았습니다. 이 방법을 사용하기 위해서는 도메인 예약을 위해 비용을 지불해야했습니다. Cloudflare는 무료 플랜을 사용하고 있었는데, 무료 플랜으로는 하루에 약 10만건의 request 를 허용할 수 있었습니다. '내 블로그에 하루에 10만건이 생길리가 없지' 하던 참에 아래와 같은 이메일을 받았습니다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68d9bc73-0dab-4bcf-ab05-5c5c269bd572/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68d9bc73-0dab-4bcf-ab05-5c5c269bd572/Untitled.png)
+![90% of daily request limit for Cloudflare Workers reached](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/68d9bc73-0dab-4bcf-ab05-5c5c269bd572/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20201124%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20201124T132645Z&X-Amz-Expires=86400&X-Amz-Signature=bfd3d3105334e4dc720e21e1c137273fe845a70f1a2fffc853a2aaa256c7ee33&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 ???
 
