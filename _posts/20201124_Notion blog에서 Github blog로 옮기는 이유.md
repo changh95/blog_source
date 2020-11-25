@@ -52,6 +52,9 @@ mathjax: false
 
 ![Cloudflare analytics - monthyl](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ea7d81f2-fc27-46de-8f38-d3c4cd007b79/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20201124%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20201124T132539Z&X-Amz-Expires=86400&X-Amz-Signature=7971562e2a8d618d474ac83503bc443db730137f85219703eda6913e1cfc64b3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
+
+</br> 
+
 # 2. 새로운 플랫폼으로의 이전
 
 ---
@@ -81,6 +84,8 @@ mathjax: false
 이 조건들을 충족할 수 있는 플랫폼들은 ***Tistory***, ***Velog***, ***Github-pages***가 있었습니다. 
 
 
+</br>
+
 # 3. Tistory vs Velog vs Github-pages
 
 Tistory를 가입하고, [Notion2Tistory](https://github.com/boltlessengineer/Notion2Tistory) 라는 시스템을 사용해봤습니다. Notion에서 작성한 글을 특유의 블록 형태까지 그대로 Tistory에서 작성할 수 있게 해주는 시스템입니다. 이 기능을 사용하면 cv-learn에 있는 이전 글들을 빠르게 옮길 수 있다고 생각했지만... 옮기다보니 예전 글에서 내용을 조금 수정하고 싶은 생각이 들더라구요. 하지만 이 시스템으로 한번 내용을 복제하고나면, 글 내용을 Tistory쪽에서 수정하기 조금 까다롭다는 단점이 있었습니다.
@@ -92,6 +97,4 @@ Github-pages의 경우가 사실 대부분의 고민을 해결해줄 수 있었�
 Github-pages의 가장 큰 단점은 Tistory나 Velog 등에 비해 손이 많이 간다는 점입니다. 나는 그냥 글을 쓰고 싶을 뿐인데, ruby와 Jekyll을 깔아야하고... 뭘 깔고 엎고 해야하니 여간 귀찮은게 아닙니다. 조금 찾아본 결과, Jekyll, Hugo, Hexo, Gatsby 등등 시스템 중에서 저는 Hexo를 우선 선택하였습니다. 별 다른 이유는 없습니다. Jekyll은 ruby를 쓴다는게 마음에 들지 않았고 (저는 ruby가 무슨 언어인지도 모릅니다...), 그 다음에 골라본게 Hexo인데 생각보다 쉬워서 정착했습니다. Hugo가 더 빠르고 좋다고 하시는데, 천천히 테스트해보고 바꿔야한다면 늦지 않게 바꿔볼 생각입니다. 어찌되었건, Hexo를 사용하면서 이쁜 블로그를 빠르게 셋업할 수 있었습니다.
 
 
-
-
- 
+Share this blog post on {% share_post twitter %}, {% share_post facebook %}, and {% share_post linkedin %}
