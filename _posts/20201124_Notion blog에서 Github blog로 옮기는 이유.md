@@ -23,7 +23,7 @@ mathjax: false
 하지만 Notion에는 큰 단점이 있습니다. 하나도 아니고 사실 몇개가 있습니다.
 
 - 첫번째로는 ***읽기 어려운 페이지 url*** 입니다. url만 봐서는 글의 내용이 전혀 추측이 가지 않으며, 제 블로그의 아이덴티티가 되는 부분을 기억하기도 꽤 어려운 편입니다. 예를 들어, 아래 url을 봤을 때, 무슨 글인지 전혀 추측이 되지 않습니다.
-    ![Notion blog url being ugly](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d1cf663c-9f86-49f9-9e68-54230d96d852/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20201124%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20201124T132459Z&X-Amz-Expires=86400&X-Amz-Signature=f5c4319d4900489ca0283d51b9feac3ad9e8ac6053733a0d73563b80ffde58c5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+    ![Notion blog url being ugly](../images/20201124/Untitled.png)
 
 - 두번째로는, ***Notion 글들의 url 주소는 글의 제목이 바뀌면 새로운 url 주소를 가지게 되는 점*** 입니다. 이는, 글의 제목을 조금 수정하게 된다면, 이전에 Facebook 등으로 공유했던 주소로는 해당 글에 접근할 수 없게 됩니다. 소셜 스크랩 및 공유가 된 글의 경우, 링크가 무용지물이 됩니다. 이 때문에 저는 글의 초안을 작성할 때 무조건 제목의 내용을 픽스해야했는데, 이 점이 굉장히 답답했습니다.
 - 세번째로는, ***카테고리 탐색 및 글 검색 기능***이 없습니다. 초기의 cv-learn을 보신 분들 중에 몇분은 제가 컴퓨터 비전, 몇분은 SLAM, 몇분은 의료영상을 하는 사람인줄 알고 계십니다. 사실 세 종류의 글을 전부 올리긴 했습니다만, 각각의 글만 보일 뿐이지, 제가 작성하는 포스트들의 맥락을 파악하기가 힘듭니다. 시리즈 형태의 글을 올릴 때는, 제가 페북에서 따로 모아서 올렸어야 했습니다.
@@ -50,7 +50,7 @@ mathjax: false
 
 도메인을 사고 난 후, ***Cloudflare 호스팅 서비스를 통해 javascript 워커 할당을해서 노션 렌더링***을 하였습니다. 이 덕분에 [http://cv-learn.com](http://cv-learn.com) 을 쓸 수 있게 되었습니다. 이 도메인 아래에서 cv-learn 블로그를 접하신 분들이 가장 많을 것이라고 생각합니다. 많은 분들께서 감사하게도 cv-learn이라는 이름을 기억해주셨고, 어느새 최신 글이 한두달 가까이 나오지 않았음에도 한달 약 1500명 정도씩 꾸준하게 방문해주시는 블로그가 되었습니다.
 
-![Cloudflare analytics - monthyl](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ea7d81f2-fc27-46de-8f38-d3c4cd007b79/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20201124%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20201124T132539Z&X-Amz-Expires=86400&X-Amz-Signature=7971562e2a8d618d474ac83503bc443db730137f85219703eda6913e1cfc64b3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![Cloudflare analytics - monthly](../images/20201124/Untitled_1.png)
 
 
 </br> 
@@ -63,7 +63,7 @@ mathjax: false
 
 우선 cv-learn 도메인을 사용하가 위해 비용을 지불해야 했습니다. Cloudflare는 무료 호스팅 플랜을 사용하고 있었는데, 이 방식으로는 하루에 약 10만건의 request 를 허용할 수 있었습니다. '내 블로그에 하루에 10만건이 생길리가 없지' 하던 참에 아래와 같은 이메일을 받았습니다.
 
-![90% of daily request limit for Cloudflare Workers reached](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/68d9bc73-0dab-4bcf-ab05-5c5c269bd572/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20201124%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20201124T132645Z&X-Amz-Expires=86400&X-Amz-Signature=bfd3d3105334e4dc720e21e1c137273fe845a70f1a2fffc853a2aaa256c7ee33&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![90% of daily request limit for Cloudflare Workers reached](../images/20201124/Untitled_2.png)
 
 ???
 
@@ -90,7 +90,8 @@ mathjax: false
 
 Tistory를 가입하고, [Notion2Tistory](https://github.com/boltlessengineer/Notion2Tistory) 라는 시스템을 사용해봤습니다. Notion에서 작성한 글을 특유의 블록 형태까지 그대로 Tistory에서 작성할 수 있게 해주는 시스템입니다. 이 기능을 사용하면 cv-learn에 있는 이전 글들을 빠르게 옮길 수 있다고 생각했지만... 옮기다보니 예전 글에서 내용을 조금 수정하고 싶은 생각이 들더라구요. 하지만 이 시스템으로 한번 내용을 복제하고나면, 글 내용을 Tistory쪽에서 수정하기 조금 까다롭다는 단점이 있었습니다.
 
-Velog의 경우, 주변 분들께서 새롭게 시작하신 분들이 몇분 계셨습니다. cv-learn 보다 로딩속도가 빨랐고, 그리고 Velog 플랫폼 내에서 내 글이 자동으로 홍보가 된다는 점도 좋았습니다. 개발자들이 많은 플랫폼이라는 것도 마음에 들었습니다. 하지만 Google에서 글에 대해 검색하였을 때, 검색 노출이 거의 되지 않았습니다. 따로 SEO를 걸지 않은 cv-learn 블로그가 더 잘 되는 느낌이였습니다. 이 점 때문에 Velog를 선택하기가 꺼려졌습니다.
+Velog의 경우, 주변 분들께서 새롭게 시작하신 분들이 몇분 계셨습니다. cv-learn 보다 로딩속도가 빨랐고, 그리고 Velog 플랫폼 내에서 내 글이 자동으로 홍보가 된다는 점도 좋았습니다. 개발자들이 많은 플랫폼이라는 것도 마음에 들었습니다. 하지만 Google에서 글에 대해 검색하였을 때, 검색 노출이 거의 되지 않았습니다. 
+따로 SEO를 걸지 않은 cv-learn 블로그가 더 잘 되는 느낌이였습니다. 이 점 때문에 Velog를 선택하기가 꺼려졌습니다.
 
 Github-pages의 경우가 사실 대부분의 고민을 해결해줄 수 있었습니다. 무료 호스팅에, cv-learn 이름도 지킬 수 있고, 테마도 제 마음대로, LaTeX 입력도 쉽고, SEO 설정도 할 수 있습니다. 댓글은 Disqus나 다른 시스템을 연결하면 되었구요. 무엇보다, 제 주변에 멋지신 두분이 운영하시는 블로그들이 Github Pages 였습니다 (항상 감사합니다 [hoya012 블로그](https://hoya012.github.io/), [jinyongjeong 블로그](https://jinyongjeong.github.io/)!). 가***장 큰 단점은 블로그 소스 파일을 저장할 때 1GB가 넘으면 안된다는 것*** 입니다. 여기에 저는 ***한가지 꼼수***를 쓰기로 했는데, 제가 사용하는 Notion의 Personal Pro Plan은 용량 저장이 무제한이라는 점을 이용하였습니다. ***Notion의 AWS 서버에 사진과 영상을 저장***하고, ***Github-pages 사이트에서는 사진과 영상을 해당 AWS 서버 링크에서 불러온다면***, 제 블로그 소스파일들은 저용량으로 남을 것입니다. 그리고 테스트를 해봤는데 실제로 되더라구요. 이 방법을 통해 저는 제 블로그의 용량제한에서 사실상 해방되었으며, 이렇게 저는 Github-pages를 선택하게 되었습니다.
 
