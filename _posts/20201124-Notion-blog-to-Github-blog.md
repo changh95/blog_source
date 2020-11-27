@@ -23,7 +23,9 @@ mathjax: false
 하지만 Notion에는 큰 단점이 있습니다. 하나도 아니고 사실 몇개가 있습니다.
 
 - 첫번째로는 ***읽기 어려운 페이지 url*** 입니다. url만 봐서는 글의 내용이 전혀 추측이 가지 않으며, 제 블로그의 아이덴티티가 되는 부분을 기억하기도 꽤 어려운 편입니다. 예를 들어, 아래 url을 봤을 때, 무슨 글인지 전혀 추측이 되지 않습니다.
-    ![Notion blog url being ugly](../images/20201124/Untitled.png)
+
+    {% asset_img "Untitled.png" "Notion url being ugly" %}
+    
 
 - 두번째로는, ***Notion 글들의 url 주소는 글의 제목이 바뀌면 새로운 url 주소를 가지게 되는 점*** 입니다. 이는, 글의 제목을 조금 수정하게 된다면, 이전에 Facebook 등으로 공유했던 주소로는 해당 글에 접근할 수 없게 됩니다. 소셜 스크랩 및 공유가 된 글의 경우, 링크가 무용지물이 됩니다. 이 때문에 저는 글의 초안을 작성할 때 무조건 제목의 내용을 픽스해야했는데, 이 점이 굉장히 답답했습니다.
 - 세번째로는, ***카테고리 탐색 및 글 검색 기능***이 없습니다. 초기의 cv-learn을 보신 분들 중에 몇분은 제가 컴퓨터 비전, 몇분은 SLAM, 몇분은 의료영상을 하는 사람인줄 알고 계십니다. 사실 세 종류의 글을 전부 올리긴 했습니다만, 각각의 글만 보일 뿐이지, 제가 작성하는 포스트들의 맥락을 파악하기가 힘듭니다. 시리즈 형태의 글을 올릴 때는, 제가 페북에서 따로 모아서 올렸어야 했습니다.
@@ -50,8 +52,7 @@ mathjax: false
 
 도메인을 사고 난 후, ***Cloudflare 호스팅 서비스를 통해 javascript 워커 할당을해서 노션 렌더링***을 하였습니다. 이 덕분에 [http://cv-learn.com](http://cv-learn.com) 을 쓸 수 있게 되었습니다. 이 도메인 아래에서 cv-learn 블로그를 접하신 분들이 가장 많을 것이라고 생각합니다. 많은 분들께서 감사하게도 cv-learn이라는 이름을 기억해주셨고, 어느새 최신 글이 한두달 가까이 나오지 않았음에도 한달 약 1500명 정도씩 꾸준하게 방문해주시는 블로그가 되었습니다.
 
-![Cloudflare analytics - monthly](../images/20201124/Untitled_1.png)
-
+{% asset_img "Untitled_1.png" "Cloudflare analytics - monthly" %}
 
 </br> 
 
@@ -63,7 +64,8 @@ mathjax: false
 
 우선 cv-learn 도메인을 사용하가 위해 비용을 지불해야 했습니다. Cloudflare는 무료 호스팅 플랜을 사용하고 있었는데, 이 방식으로는 하루에 약 10만건의 request 를 허용할 수 있었습니다. '내 블로그에 하루에 10만건이 생길리가 없지' 하던 참에 아래와 같은 이메일을 받았습니다.
 
-![90% of daily request limit for Cloudflare Workers reached](../images/20201124/Untitled_2.png)
+{% asset_img "Untitled_2.png" "90% of daily request limit for Cloudflare Workers reached" %}
+
 
 ???
 
