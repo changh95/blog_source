@@ -31,6 +31,7 @@ mathjax: true
 - Personal research blog (Korean): [cv-learn blog](http://cv-learn.com)
 
 ## :tada: Presentations
+- 한컴 인스페이스 세미나 2020 - [2시간만에 SLAM 마스터 되기]()
 - 한컴 Academy Workshop 2020 - [하루만에 SLAM 마스터 되기](https://www2.slideshare.net/HyunggiChang/visualslam-in-1-day)
 - 전액 기부 웨비나 2020  - [비전을 나누는 시간 - 딥러닝 없는 컴퓨터 비전, 증강현실과 SLAM](https://youtu.be/QKtyoNAdoqc)
 - 전액 기부 웨비나 2020 - [Visual SLAM의 Past, Present and Future](https://youtu.be/eoLJMNJnTUg)
