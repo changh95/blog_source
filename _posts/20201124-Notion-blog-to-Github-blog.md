@@ -3,7 +3,7 @@ title: Notion blog에서 Github blog로 옮기는 이유
 date: 2020-11-24 16:26:16
 tags: [blog, tech, Notion, gh-pages] 
 categories: Blog
-excerpt: cv-learn 노션 블로그를 이전해야만 했던 이유를 소개합니다!
+excerpt: cv-learn 블로그가 Notion -> Notion + Cloudflare -> Github-pages로의 블로그 이전 과정을 소개합니다
 mathjax: false
 ---
 
