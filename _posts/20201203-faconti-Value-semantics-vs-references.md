@@ -1,5 +1,5 @@
 ---
-title: (번역) 컴퓨터 비전을 위한 C++ 최적화 (0) - Const reference를 쓰세요!
+title: (번역) 실시간 컴퓨터 비전을 위한 C++ 최적화 (0) - Const reference를 쓰세요!
 date: 2020-12-03 12:44:26
 tags: [C++, CV, Optimisation]
 categories: [SLAM, C++]
@@ -8,8 +8,10 @@ excerpt: Davide Faconti의 CPP Optimization Diary 블로그 글 중 "Value Seman
 
 Davide Faconti의 [CPP Optimization Diary 블로그](https://cpp-optimizations.netlify.app/) 글 중 "Value Semantics vs references"을 적당히 번역했습니다. 원글 링크는 [여기](https://cpp-optimizations.netlify.app/prefer_references/)를 봐주세요.
 
----
+<br>
 
+## Pass by Value
+---
 이번 글의 내용은 사실 어느정도 C++ 개발을 해보신 분들은 이미 잘 아는 내용일 것이라고 믿습니다.
 
 그래도 저는 종종 이런 코드를 짜는 사람들을 봅니다.
@@ -29,9 +31,9 @@ Matrix3D Rotate(Matrix3D mat, AxisAngle axis_angle);
 
 위 코드들은 모두 함수 인자를 ***passing by value*** 형태로 넘깁니다.
 
-즉, 이 함수를 호출할 때 마다, 이 함수의 인자들은 복사된 후에 함수로 넘겨집니다.
+즉, 이 함수를 호출할 때 마다 함수 인자들은 우선 복사가 되고, 그 후에 함수로 넘겨집니다.
 
-{% asset_img "why_copy.png" "왜 복사하는건데 대체" %}
+{% asset_img "why_copy.jpg" "왜 복사하는건데 대체" %}
 
 복사 작업은 종종 굉장히 무거운 작업이 될 수 있습니다. 작은 객체를 복사할 때는 그리 무겁지 않지만, 엄청 큰 객체를 복사하면 무거울 수 있죠. 동적 heap memory allocation이 들어간다면 더 무거울 수도 있겠습니다. 
 
@@ -131,8 +133,11 @@ void PassVectorByRef(benchmark::State& state) {
 {% asset_img "const_reference.png" "const reference가 최고입니다" %}
 
 
-명백하게, passing by reference의 성능이 더 좋습니다.
-Clearly, passing by reference wins hands down.
+명백하게, ***passing by reference의 성능이 더 좋습니다***.
+
+
+<br>
+<br>
 
 ## Const reference를 쓰면 안되는 예시
 
@@ -183,3 +188,7 @@ Primitive types를 const reference로 복사할 때는 컴파일러가 추가적
 ```C++
 void YouAreTryingTooHardDude(const int& a, const double& b); // 이건 하지 맙시다
 ```
+
+<br>
+<br>
+게시글 공유:{% share_post twitter %}, {% share_post facebook %}, and {% share_post linkedin %}
