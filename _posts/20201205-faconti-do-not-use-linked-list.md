@@ -8,6 +8,8 @@ excerpt: Davide Faconti의 CPP Optimization Diary 블로그 글 중 "I have lear
 
 Davide Faconti의 [CPP Optimization Diary 블로그](https://cpp-optimizations.netlify.app/) 글 중 "I have learnt linked-lists at university, should I use them?" Nooope."을 적당히 번역했습니다. 원글 링크는 [여기](https://cpp-optimizations.netlify.app/no_lists/)를 봐주세요.
 
+역자 코멘트: 이 글의 모든 내용에 동의하지는 않습니다만, 원작자의 요청으로 최대한 원글의 뉘앙스를 그대로 옮겨왔습니다. 개인적으로, 저는 `std::list`가 글에서 표헌하는 것 처럼 아예 쓸모없다고 생각하지는 않습니다. 그랬다면 이미 C++ 언어에서 사라졌겠지요 ㅎㅎ... 적시적기에 사용한다면 `std::list` 역시 타 자료구조보다 좋은 성능을 내겠습니다만, 실시간 컴퓨터 비전의 용도에서 그런 상황이 자주 나타나지 않는 점에도 동의합니다.
+
 <br>
 
 # `std::list`를 쓰고 계신다면, 당장 그만두세요.
@@ -20,8 +22,10 @@ Davide Faconti의 [CPP Optimization Diary 블로그](https://cpp-optimizations.n
 
 
 - [std::vector vs std::list benchmark](https://baptiste-wicht.com/posts/2012/11/cpp-benchmark-vector-vs-list.html)
+  - (역자 코멘트: 위의 링크는 잘못 첨부된 그래프가 몇개 포함되어있습니다. 가장 중요한 random remove 관련 그래프가 잘못 올라와있더라구요. 그러니 정확한 벤치마크 결과를 위해서는 위 링크보다는 여기 링크: [C++ benchmark – std::vector VS std::list VS std::deque](https://baptiste-wicht.com/posts/2012/12/cpp-benchmark-vector-list-deque.html)를 참조하시길 바랍니다.)
 
 - [Are lists evil? Bjarne Stroustrup](https://isocpp.org/blog/2014/06/stroustrup-lists)
+  - (역자 코멘트: 이 링크 내용을 읽어보시면 C++의 창시자인 Bjarne Stroustrup는 list가 완전 잘못된건 아니라고 하고 있습니다. 정확하게 이해하고 쓰면 list도 다른 자료구조보다 좋은 성능을 낼 수 있습니다.)
 
 - [Video from Bjarne Stroustrup keynote](https://www.youtube.com/watch?v=YQs6IC-vgmo)
 
@@ -66,3 +70,28 @@ std::vector<unsigned> _valid_indices;
 
 코드 몇줄 바꿔서 이 정도 속도 향상을 얻는건 엄청난거죠.
 
+---
+
+## 역자 추가 내용
+
+[C++ benchmark – std::vector VS std::list VS std::deque](https://baptiste-wicht.com/posts/2012/12/cpp-benchmark-vector-list-deque.html) 링크를 보시면 다음과 같은 내용이 나옵니다.
+
+- 대부분의 경우, `std::vector`와 `std::deque`가 `std::list`에 비해 더 빠르다.
+- `std::list`가 `std::vector`와 `std::deque`에 비해 더 빠른 경우는 아래와 같다.
+  - Random insert (중간에 새 element를 insert) 작업에서, insert 되는 객체의 크기가 큰 경우
+  - Random insert (중간에 새 element를 insert) 작업에서, insert 되는 객체가 non-trivial인 경우
+  - Random remove (중간에 element를 erase) 작업
+  - push_front (최앞단에 새 element를 insert) 작업 
+  - sort 작업에서, element 객체가 큰 경우
+
+즉, 위와 같은 작업에서는 `std::list`를 써야하는 것이 맞으며, 이는 원글이 주장하는 내용과 다릅니다.
+
+원글이 `std::list`를 쓸 필요가 없다고 주장한 부분은, 아무래도 ***위와 같은 경우가 실시간 컴퓨터 비전에서 자주 나타나지 않는 상황***이기에 그런 것 같습니다.
+
+우선적으로, 실시간 컴퓨터 비전에서는 센서로부터 오는 데이터를 순차적으로 저장하는 경우가 많기 때문에, '중간에 새 element를 insert' 하는 경우가 많이 없습니다. 
+
+또, 새 데이터가 들어오면 가장 뒷단에 저장하는 경우가 많기 때문에, `push_front()` 같은 작업도 자주 나타나지 않죠.
+
+'중간에서 element를 erase'하는 작업도 보통 잘 나타나지 않습니다. Raw 센서 데이터에서 '최대 정확도를 낼 수 있는 최소한의 데이터'만 남기는 것이 메모리와 계산량의 효율성에 큰 영향을 줍니다. 그렇기에 Raw 데이터에서 전처리를 통해 남는 데이터가 많지 않습니다. 보통 기존의 컨테이너에서 element를 지우기보다는 새로운 컨테이너에 전처리를 통과한 데이터를 저장하고, raw 데이터는 지우는 방식을 사용합니다.
+
+Sort는 자주 사용되는 기법이지만, 경우에 따라서 비교해야하는 element 객체가 크거나 작을 수 있습니다. 여기에 있어서 많은 기법들이 element 객체를 직접 비교하는게 아닌, 어떠한 distance metric을 사용하여 비교합니다. L2 Norm, Hamming distance 등이 있습니다. 예시로, Visual feature matching을 위해 descriptor distance를 구하는데, 각각의 descriptor를 직접 비교하는 것이 아닌 floating distance / hamming distance 등으로 metric distance값을 계산하여, 매치의 정확도 값을 따로 저장하고, 그 정확도를 기점으로 sort하는 경우가 많습니다. 
