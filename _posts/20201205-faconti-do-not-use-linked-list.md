@@ -8,7 +8,7 @@ excerpt: Davide Faconti의 CPP Optimization Diary 블로그 글 중 "I have lear
 
 Davide Faconti의 [CPP Optimization Diary 블로그](https://cpp-optimizations.netlify.app/) 글 중 "I have learnt linked-lists at university, should I use them?" Nooope."을 적당히 번역했습니다. 원글 링크는 [여기](https://cpp-optimizations.netlify.app/no_lists/)를 봐주세요.
 
-역자 코멘트: 이 글의 모든 내용에 동의하지는 않습니다만, 원작자의 요청으로 최대한 원글의 뉘앙스를 그대로 옮겨왔습니다. 개인적으로, 저는 `std::list`가 글에서 표헌하는 것 처럼 아예 쓸모없다고 생각하지는 않습니다. 그랬다면 이미 C++ 언어에서 사라졌겠지요 ㅎㅎ... 적시적기에 사용한다면 `std::list` 역시 타 자료구조보다 좋은 성능을 내겠습니다만, 실시간 컴퓨터 비전의 용도에서 그런 상황이 자주 나타나지 않는 점에도 동의합니다.
+역자 코멘트: 원작자의 요청으로 최대한 원글의 뉘앙스를 그대로 옮겨왔습니다. 저는 `std::list`가 글에서 표현하는 것 처럼 쓸모없다고 생각하지는 않습니다. 그랬다면 이미 C++ 언어에서 사라졌겠지요 ㅎㅎ... 적시적기에 사용한다면 `std::list` 역시 타 자료구조보다 좋은 성능을 내겠습니다. 하지만, 실시간 컴퓨터 비전의 용도에서 그런 상황이 자주 나타나지 않는 점에도 동의합니다. 이 점 유의하시고 읽어주시길 부탁드립니다 :)
 
 <br>
 
@@ -95,3 +95,5 @@ std::vector<unsigned> _valid_indices;
 '중간에서 element를 erase'하는 작업도 보통 잘 나타나지 않습니다. Raw 센서 데이터에서 '최대 정확도를 낼 수 있는 최소한의 데이터'만 남기는 것이 메모리와 계산량의 효율성에 큰 영향을 줍니다. 그렇기에 Raw 데이터에서 전처리를 통해 남는 데이터가 많지 않습니다. 보통 기존의 컨테이너에서 element를 지우기보다는 새로운 컨테이너에 전처리를 통과한 데이터를 저장하고, raw 데이터는 지우는 방식을 사용합니다.
 
 Sort는 자주 사용되는 기법이지만, 경우에 따라서 비교해야하는 element 객체가 크거나 작을 수 있습니다. 여기에 있어서 많은 기법들이 element 객체를 직접 비교하는게 아닌, 어떠한 distance metric을 사용하여 비교합니다. L2 Norm, Hamming distance 등이 있습니다. 예시로, Visual feature matching을 위해 descriptor distance를 구하는데, 각각의 descriptor를 직접 비교하는 것이 아닌 floating distance / hamming distance 등으로 metric distance값을 계산하여, 매치의 정확도 값을 따로 저장하고, 그 정확도를 기점으로 sort하는 경우가 많습니다. 
+
+하지만 컴퓨터 비전 쪽 계산에는 정말로 다양한 방식으로 계산을 하고 데이터를 저장해야합니다. 제가 생각하지 못한 부분에서 위와 같은 경우가 나타날 수 있고, 그런 경우에는 `std::list`가 진가를 보여줄 수 있는 부분이 있을 것이라고 생각합니다. 이 글을 읽으시는 분들께는 `std::list`를 사용하실 때 `std::list`, `std::vector`, `std::deque` 중 어떤 컨테이너를 사용하는게 더 효율적일지 한번 더 고려하실 수 있는 기회가 되길 바랍니다.
