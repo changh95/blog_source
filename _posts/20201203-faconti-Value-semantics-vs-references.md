@@ -2,7 +2,9 @@
 title: (번역) 실시간 컴퓨터 비전을 위한 C++ 최적화 (0) - Const reference를 쓰세요!
 date: 2020-12-03 12:44:26
 tags: [C++, CV, Optimisation]
-categories: [SLAM, C++]
+categories: 
+- [SLAM] 
+- [C++]
 excerpt: Davide Faconti의 CPP Optimization Diary 블로그 글 중 "Value Semantics vs references"을 적당히 번역했습니다.
 ---
 

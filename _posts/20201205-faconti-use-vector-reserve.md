@@ -2,7 +2,9 @@
 title: (번역) 실시간 컴퓨터 비전을 위한 C++ 최적화 (1) - std::vector<>::reserve()를 쓰세요!
 date: 2020-12-05 12:44:26
 tags: [C++, CV, Optimisation]
-categories: [SLAM, C++]
+categories: 
+- [C++]
+- [SLAM]
 excerpt: Davide Faconti의 CPP Optimization Diary 블로그 글 중 "Use std::vector<>::reserve by default"을 적당히 번역했습니다.
 ---
 

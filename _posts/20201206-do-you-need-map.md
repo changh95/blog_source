@@ -1,8 +1,13 @@
 ---
 title: (번역) 실시간 컴퓨터 비전을 위한 C++ 최적화 (3) - std::map을 써야할까요?
 date: 2020-12-06 20:38:19
-tags: [C++, CV, Optimisation]
-categories: [SLAM, C++]
+tags: 
+- C++
+- CV
+- Optimisation
+categories: 
+- [SLAM]
+- [C++]
 excerpt: Davide Faconti의 CPP Optimization Diary 블로그 글 중 "Do you actually need to use std::map?"을 적당히 번역했습니다.
 ---
 
@@ -138,7 +143,7 @@ std::sort( my_map.begin(), my_map.end() ) ;
 
 > "어,, 근데 저는 map에서 element를 찾아야하는걸요"
 
-그 경우에는, `std::lower_bound`(http://www.cplusplus.com/reference/algorithm/lower_bound/)함수를 사용해서 ***ordered vector***로부터 key값을 이용해 value를 얻어낼 수 있습니다. `std::lower_bound`와 `std::upper_bound`의 complexity는 ***O(log n)***입니다. `std::map`이랑 같지만, iteration은 훨씬 더 빠르게 돌 수 있죠.
+그 경우에는, [std::lower_bound](http://www.cplusplus.com/reference/algorithm/lower_bound/) 함수를 사용해서 ***ordered vector***로부터 key값을 이용해 value를 얻어낼 수 있습니다. `std::lower_bound`와 `std::upper_bound`의 complexity는 ***O(log n)***입니다. `std::map`이랑 같지만, iteration은 훨씬 더 빠르게 돌 수 있죠.
 
 <br>
 
