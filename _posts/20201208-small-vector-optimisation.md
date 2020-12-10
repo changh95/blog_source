@@ -22,7 +22,7 @@ Davide Faconti의 [CPP Optimization Diary 블로그](https://cpp-optimizations.n
 
 `std::vector`를 사용하면서 사이즈가 늘어날 때 마다 비싼 heap allocation를 방지하기 위해 우리는 `reserve`를 사용했었습니다. 하지만, 이 방법을 쓰면 ***무조건 처음에 단 한번***은 heap allocation을 해야하죠. 이 점이 굉장히 아쉽습니다. 좋은 방법이 없을까요?
 
-사실 여기에도 방법이 있습니다. 추후에 적을 [작은 string 최적화]() 글에도 이 방법을 사용할겁니다.
+사실 여기에도 방법이 있습니다. 추후에 적을 [Small String Optimisation (SSO)](https://changh95.github.io/20201210-small-string-optimisation/) 글에도 이 방법을 사용할겁니다.
 
 <br>
 
