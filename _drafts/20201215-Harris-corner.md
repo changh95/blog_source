@@ -251,11 +251,16 @@ cornerEigenValsVecs( const Mat& src, Mat& eigenv, int block_size,
                      int borderType=BORDER_DEFAULT )
 {
     // block_size는 local window의 크기
-    // aperture_size는 sobel operator 윈도우 크기 이다
+    // aperture_size는 sobel operator 윈도우 크기. CV_SCHARR를 쓰면 -1.
 
     int depth = src.depth();
+
+    // 여기 코드를 보면 opencv는 normalization을 위한 scale을 1/2^(r-1)을 사용한다.
+    // 근데 여기 링크를 보니, 원래 스케일은 1/2^(2r-3)이여야한다고 한다.
+    // 왜 이런 값을 쓰는걸까...? Sobel filtering을 위한 normalization이라고 하는데, sobel 함수도 봐야하는건지... 
+    // 출처 https://stackoverflow.com/questions/54021876/significance-of-sobels-scale-when-searching-harris-corners
     double scale = (double)(1 << ((aperture_size > 0 ? aperture_size : 3) - 1)) * block_size;
-    if( aperture_size < 0 )
+    if( aperture_size < 0 ) // aperture_size가 0보다 작을 때는 CV_SCHARR인 경우...
         scale *= 2.0;
     if( depth == CV_8U )
         scale *= 255.0;
@@ -263,7 +268,7 @@ cornerEigenValsVecs( const Mat& src, Mat& eigenv, int block_size,
 
     CV_Assert( src.type() == CV_8UC1 || src.type() == CV_32FC1 );
 
-    // Sobel filter 적용
+    // Sobel / scharr filter 적용
     Mat Dx, Dy;
     if( aperture_size > 0 )
     {
@@ -292,6 +297,7 @@ cornerEigenValsVecs( const Mat& src, Mat& eigenv, int block_size,
             float dx = dxdata[j];
             float dy = dydata[j];
 
+            // 매 픽셀마다 3개씩 (dx^2, dxdy, dy^2)를 저장
             cov_data[j*3] = dx*dx;
             cov_data[j*3+1] = dx*dy;
             cov_data[j*3+2] = dy*dy;
@@ -342,6 +348,12 @@ static void calcHarris( const Mat& _cov, Mat& _dst, double k )
 
         for( ; j < size.width; j++ )
         {
+            // 이전에 저장해둔 dx^2, dxdy, dy^2를 읽어와서 
+            // |a c|
+            // |c b|
+            // 로 계산.
+            // det(M) = ab-c^2
+            // tr(M) = a+c
             float a = cov[j*3];
             float b = cov[j*3+1];
             float c = cov[j*3+2];
