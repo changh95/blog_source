@@ -6,6 +6,9 @@ tags:
 - SLAM
 - Visual-SLAM
 - CV
+- Kimera
+- Certifiable algorithm
+- MAP estimation
 categories: 
 - [SLAM]
 excerpt: IROS 2020 학회에서 Luca Carlone 교수님께서 발표해주신 튜토리얼 영상의 노트입니다. SLAM 기술 소개, Maximum-a-posteriori (MAP) estimation, 그리고 미래에 풀어야할 숙제들에 대해 설명합니다.
