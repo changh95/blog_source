@@ -135,6 +135,8 @@ Hand-held 카메라를 사용해서 feature detection + tracking을 수행하고
 
 ## Dense / Direct Visual SLAM의 시작
 
+## DTAM
+
 {% asset_img "denseslam.png" "Dense SLAM" %}
 
 2009년에 GPGPU를 사용해서 실시간 dense reconstruction을 성공시켰다.
@@ -142,6 +144,8 @@ Hand-held 카메라를 사용해서 feature detection + tracking을 수행하고
 이 연구를 발전시켜 2011년에 PTAM의 dense버전인 [DTAM](https://youtu.be/Df9WhgibCQA)이 발표되었다.
 PTAM은 sparse map밖에 쓸 수 없었지만, DTAM은 이를 dense map으로 확장을 했다고 볼 수 있다.
 이 연구를 통해 sparse map에 비해 dense map이 가지는 장점을 확실하게 알 수 있었다.
+
+## KinectFusion
 
 조금 다른 방향의 연구가 진행된 것도 있다.
 Microsoft Kinect와 같은 RGB-D 카메라를 사용한 연구이다.
@@ -153,6 +157,8 @@ DTAM의 경우는 monocular 카메라를 사용해서 dense map을 만드는 계
 그리고 next step이라고 생각했던 '좀 더 큰 맵'을 만드는 과정과 volumetric representation 기술을 연구할 수 있게 되었다고 한다.
 
 <br>
+
+## ElasticFusion, SemanticFusion
 
 {% asset_img "semanticfusion.png" "Semantic Fusion" %}
 
@@ -199,6 +205,8 @@ Davison 교수님은 두가지 방법을 제안하셨다.
 
 # CodeSLAM, SceneCode, DeepFactors - 딥러닝 keyframe 정보 압축
 
+## CodeSLAM
+
 {% asset_img "codeslam.png" "Code SLAM" %}
 
 Visual-SLAM에서 keyframe 정보는 굉장히 많이 사용되는 정보 중 하나이다.
@@ -215,11 +223,19 @@ Variational autoencoder를 SLAM에 적용했을 때, keyframe에서 얻을 수 �
 이 code는 약 32개의 파라미터를 가지며, 이는 기존의 방식에 비해 굉장히 작다는 것을 알 수 있다.
 또, 이 code의 파라미터를 조정함으로써 값을 변화시킬 수도 있다.
 
+## SceneCode
+
 후속 연구인 SceneCode에서는 depth map과 semantic map의 code를 이용해 joint optimisation을 수행하는 방법을 제안한다.
 Depth map의 code화는 CodeSLAM에서 보여준 방식과 동일하다.
 Semantic map의 code화는 새롭게 제안하는 방식이지만, CodeSLAM과 크게 차이가 나지는 않는 것 같다.
 여러 keyframe들로터 depth map code와 semantic map code가 있을 때, 이 code 들의 값을 조정하면서 joint optmisation을 수행할 수 있다.
 Code가 포함하는 파라미터의 수가 굉장히 작기 때문에, joint optimisation의 계산량도 많지 않다고 한다.
+
+## DeepFactors
+
+<br>
+
+{% asset_img "deepfactors.png" "DeepFactors" %}
 
 DeepFactors에서는 위 방식을 실제 Factor graph optmisation에 포함시켜 [실시간 데모](https://youtu.be/htnRuGKZmZw)를 만들었고, [오픈소스 프로젝트](https://github.com/jczarnowski/DeepFactors)로 공개하였다.
 CodeSLAM에서는 하나의 방법론을 탐색하였다면, DeepFactors에서는 전체 SLAM 시스템에서 작동하는 수준으로 끌어올린 것이다.
@@ -239,6 +255,8 @@ Spatial AI에서 결국 우리가 가장 집중하게 되는 것은 'objects'이
 하지만 현재의 파이프라인에서는 reconstructed map에서부터 objects를 추출해야하는데, 굉장히 비효율적이다.
 "SLAM에서 사용하는 map을 object단위로 만들 수 있을까?"라는 질문이 생긴다.
 
+## SLAM++
+
 <br>
 
 {% asset_img "slamplusplus.png" "SLAM++" %}
@@ -251,13 +269,15 @@ SLAM++은 뎁스카메라를 사용하면서 프론트엔드 단계에서 object
 
 <br>
 
-{% asset_img "slamplusplus.png" "SLAM++" %}
+{% asset_img "map_hierarchy.png" "Hierarchical Map" %}
 
 현재 활발하게 연구되고 있는 분야는 Hierarchical map 구조이다.
 이 구조는 SLAM++에서 영감을 받았다고 할 수 있다.
 Facebook Reality Labs의 [Live Maps](https://youtu.be/JTa8zn0RNVM)나 MIT의 Luca Carlone 교수님 랩실에서 나온 [3D Dynamic Scene Graph](https://youtu.be/JTa8zn0RNVM)
 SLAM++은 object level만 다룬다고 하면, 이 방식들은 여러 level로 그래프를 구성한다는 것이다. 
 SLAM++에서 수행하는 작업이 Hierarchical map 속 하나의 level이 될 수 있다는 것이다.
+
+## MoreFusion
 
 <br>
 
@@ -276,12 +296,16 @@ MoreFusion은 object가 겹쳐올려진 상태에서도 정확한 맵을 복원�
 MoreFusion은 volumetric reasoning를 (object끼리 서로 통과할 수 없는 constraint) 사용하여 정확하게 6D pose를 구할 수 있다.
 하지만 SLAM++이 방 크기를 스캔할 수 있던데에 비해 MoreFusion은 훨씬 작은 테이블탑 크기에서만 사용할 수 있다. 
 
+## Fusion++
+
 <br>
 
 {% asset_img "fusionplusplus.png" "Fusion++" %}
 
 SLAM++이나 MoreFusion처럼 object에 대한 사전정보가 없으면 어떻게 할까?
 [Fusion++](https://youtu.be/2luKNC03x4k)은 [Mask-RCNN](https://arxiv.org/abs/1703.06870)이라는 딥러닝 object intance segmentation 기술을 이용해, 그 자리에서 object를 검출하고 volumetric reconstruction을 수행하여 object-level SLAM을 수행한다.
+
+## NodeSLAM
 
 <br>
 
