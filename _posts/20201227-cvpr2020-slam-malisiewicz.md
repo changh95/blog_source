@@ -12,6 +12,8 @@ tags:
 - AR
 - Magic Leap
 - SuperPoint
+- DeepChArUco
+- SuperPointVO
 - SuperGlue
 - SuperMaps
 categories: 
@@ -293,12 +295,158 @@ Siamese training 구조로 keypoint loss와 descriptor loss를 구한다.
 
 ---
 
-# SuperGlue 
+# SuperGlue - Graph neural network + Self-attention 기반 keypoint 매칭
 
 <br>
 
 {% asset_img "superglue.png" "SuperGlue" %}
 
-SuperGlue는 Graph Neural Network면서 Optimal transport procedure이다.
+SuperGlue는 Graph Neural Network에 Optimal transport procedure를 추가한 알고리즘이다.
 
+SuperGlue의 목적은 wide baseline에서 SuperPoint를 매칭하는 것이며, motion model을 사용하지 않고도 기존의 motion-guided matching 기법보다 더 좋은 성능을 내는 것이다.
+이는, SLAM을 진행하면서 종종 잘못된 motion model을 사용했을 때 feature matching의 성능이 급격하게 감소하는 것을 방지하기 위함이다.
+
+SuperGlue는 GPU에서 실시간으로 돌아가면서 State-of-the-Art 성능을 보여준다.
+SuperGlue는 SuperPoint와 쓸 수도 있고, SIFT와 쓸 수도 있다.
+
+<br>
+
+{% asset_img "superglue_architecture.png" "SuperGlue Architecture" %}
+
+(원래 영상에서는 깊게 설명하지 않지만, 다른 SuperGlue 영상에서 내용을 가져와서 첨부하였습니다)
+
+SuperGlue는 2가지 단계로 나눠져있다.
+첫번째는 Attention을 이용한 graph neural network이다.
+이 부분은 Keypoint들의 location 정보와 descriptor 정보를 attention 메커니즘을 사용해서 contextual cue에 대한 정보를 학습한다.
+두번째는 기존의 (i.e. 딥러닝을 쓰지 않는) 최적화 프로그래밍을 수행하며, 사용한 알고리즘은 sinkhorn 알고리즘이다.
+Sinkhorn 알고리즘을 통해 differentaible solver를 만듬으로써, domain knowledge에 대한 constraint를 만든다.
+
+## Keypoint encoder
+
+<br>
+
+{% asset_img "superglue_front.png" "SuperGlue Architecture - creating representation" %}
+
+SuperGlue의 가장 앞단에서는, 매칭을 수행할 이미지 2장으로부터 추출된 keypoint들을 모두 attention 메커니즘에 input 데이터로 사용한다.
+이런 방법은 기존의 매칭 방법과 큰 차이를 보인다.
+기존의 매칭 방법은, 각각의 이미지에서 따로 descriptor 등의 계산을 거친 후 [nearest neighbour 방식](https://github.com/mariusmuja/flann) 등으로 매칭을 수행하였다. 
+하지만 비슷한 local feature descriptor가 많이 있을 때, 매칭 candidate가 너무 많기 때문에 이런 경우에는 매칭에 실패하기도 한다.
+
+SuperPoint를 사용했을 경우를 가정해보고 설명한다.
+빨간색이 1번 이미지에서 나온 정보, 파란색이 2번 이미지에서 나온 정보이다.
+두 이미지에 각각 SuperPoint를 검출한 후 keypoint location 정보를 keypoint encoder 네트워크로 보내 섞는다.
+이 encoded keypoint location 정보는 local visual appearance 정보와 (i.e. visual descriptor) multi-layer perceptron 레이어을 거치며 합쳐진다.
+이 결과 keypoint representation이 만들어진다.
+
+## Attentional aggregation (Attentional Graph Neural Network update)
+
+<br>
+
+{% asset_img "superglue_graph.png" "SuperGlue Architecture - Attentional aggregation" %}
+
+Keypoint representation은 Attentional graph neural network 구조 속 다른 keypoint 정보들로부터 iterative하게 업데이트 된다.
+
+업데이트가 되는 방식이 두개가 있는데, self-edge 업데이트와 cross-edge 업데이트가 있다.
+하나의 keypoint 정보가 동일한 이미지의 다른 keypoint 정보로부터 업데이트가 되는 것이 self-edge update이다.
+그리고 keypoint 정보가 다른 이미지의 다른 keypoint 정보로부터 업데이트가 되는 것이 cross-edge udpate이다.
+이 keypoint 정보들을 node로 표현하고 update 관계를 edge로 표현하면, self-edge와 cross-edge로 이뤄진 하나의 graph 형태가 나타난다.
+이 업데이트 과정은 graph neural network의 한 종류인 Message passing neural network를 사용하며, 각각의 message는 self-attention 또는 cross-attention을 이용하여 계산된다.
+이 Self-attention은 [Transformer](https://arxiv.org/abs/1706.03762)에서 영감을 받았다.
+
+Self/cross-attention을 통한 message 계산은 database retrieval과 비슷하다고 한다.
+Query 데이터 $q_i$와 비슷한 Key 데이터 $k_j$를 찾고, 해당하는 value 데이터 $v_j$를 찾는다고 한다.
+이 때, 평균 value 값에 query~key 데이터의 similarity 값을 weight로 곱해준 값을 message 값으로 사용한다고 한다.
+이 때문에, 이 업데이트 과정을 attentional aggregation이라고도 한다.
+
+<br>
+
+{% asset_img "attentional_aggregation.png" "Query to Key and Values" %}
+
+위 과정을 조금 더 쉽게 설명하겠다.
+$x_i$ keypoint 정보로 Query를 했을 때, Key 값으로 여러 keypoint candidate가 나온다.
+이 $x_i$ 값은 keypoint location과 visual appearance 정보를 encode 하고 있기 때문에, $k_j$들로 spatial neighbour, self-similarity, salient keypoint를 매칭할 수 있다.
+ 
+<br>
+
+{% asset_img "self_cross.png" "Self/Cross attention" %}
+
+Self-attention으로는 동일한 이미지에서 다른 keypoint들로부터 self-similarity 정보를 효과적으로 얻어낼 수 있다.
+Cross-attention은 이미지 간 candidate match로 찾을 수 있다.
+
+## Optimal matching
+
+<br>
+
+{% asset_img "superglue_optimal_matching.png" "Optimal matching layer" %}
+
+Attentional aggregation이 끝나면 최종 matching descriptor 정보가 각각의 이미지로부터 나온다.
+Matching descriptor 정보를 dot product하면, 두 keypoint descriptor 정보간의 밀접도를 (i.e. affinity) 표현하는 score matrix가 생긴다.
+종종 occlusion의 이유로 매칭이 될 수 없는 keypoint가 있는 것을 대비하여, score matrix에 dustbin score를 추가시켰다.
+
+[Sinkhorn 알고리즘](https://michielstock.github.io/OptimalTransport/)을 사용하여 partial assignment 최적화 문제를 GPU에서 잘 돌 수 있도록 바꿔주었다.
+
+SuperGlue의 네트워크 최앞단부터 partial assignment matrix까지 전부 ground truth correspondence 데이터를 통해 end-to-end 트레이닝이 가능하다.
+
+<br>
+
+{% asset_img "superglue_eval.png" "Evaluation of SuperGlue" %}
+
+기존의 Nearest neighbour 매칭 방식에 비교했을 때, SuperGlue가 훨씬 더 많은 매칭 결과를 보여준다.
+특히나, 바닥에서 반복되는 패턴이 있음에도 굉장히 매칭이 잘된다.
+
+<br>
+
+{% asset_img "superglue_eval2.png" "Evaluation of SuperGlue 2" %}
+
+MagicLeap 팀이 지금까지 테스트 해본 결과 SuperPoint + SuperGlue 조합이 제일 잘 되는 것을 확인하였다.
+
+SuperGlue는 [오픈소스](https://github.com/magicleap/SuperGluePretrainedNetwork)로 공개되어있다.
+GPU가 달린 노트북/데스크탑으로 VGA 이미지로부터 약 512개의 keypoint를 추출했을 때, 15FPS 정도로 작동한다고 한다.
+
+Tomasz의 조언에 따르면, 데모가 굉장히 잘된다고 한다.
+논문을 읽고나서 이 기술을 쓸지 말지 결정하는데는 몇시간이 걸릴 수도 있지만, 그냥 웹캠 하나 꽂고 돌려보면 바로 써봐야겠다는 결정을 할거라고 한다.
+본인도 이 데모의 failure case를 만들어보기 위해 카메라 포커스도 바꿔보고, occlusion도 만들어봤지만 그냥 너무 잘된다고 한다.
+
+실제로 CVPR 2020 학회에서 진행된 3개의 대회 (Image matching challenge, Local features for visual localization, Visual localization for handheld devices) 대회에서 모두 우승했다고 한다.
+
+<br>
+
+---
+
+# SuperMaps - SuperPoint + SuperGlue의 미래...?
+
+SuperPoint + SuperGlue의 다음은 뭘까?
+
+SuperPoint + SuperGlue 콤보는 이미지 pair를 사용할 수 있다.
+SuperMaps는 여러장의 이미지를 쓸 수 있지 않을까?
+여러장의 이미지는 보통 3D Map을 의미하기도 한다.
+3D Map 끼리 섞는것도 가능하지 않을까?
+
+SuperPoint + SuperGlue 콤보는 keypoint matching만 해주고 정작 제일 중요한 camera pose estimation은 하지 않는다.
+SuerperMaps는 camera pose estimation도 할 수 있지 않을까?
+
+SuperPoint + SuperGlue 콤보는 loop closure 기능을 내포하지 않는다.
+그리고 SuperGlue의 계산량은 꽤 높은 편이다.
+SuperGlue를 사용하기 어렵기 때문에, loop closure를 구현하기도 쉽지는 않다.
+SuperMaps는 loop closure를 위한 keyframe embedding 기능이 있어야한다.
+SuperPoint들을 (i.e. local keypoints) 모아서 하나의 global descriptor를 만드는 것도 하나의 방법이 될 것 같다.
+
+SuperPoint와 SuperGlue는 각각 트레이닝되야한다.
+SuperMaps는 가능하면 한번에 end-to-end 트레이닝이 되면 좋을 것 같다.
+필수는 아니다.
+
+SuperPoint는 CNN 기반이고, SuperGlue는 GNN 기반이다.
+그렇기 때문에 두 네트워크의 receptive field 개념이 굉장히 다르다.
+SuperMaps는 공통된 receptive field가 있으면 좋을 것 같다.
+
+---
+
+# 딥러닝 SLAM에서 풀어야 할 숙제
+
+- Multi-user SLAM
+  - 다수의 agent를 통해서 representation/map을 만드는 방법이 있어야한다.
+- Object recognition이 SLAM frontend로 들어가야한다
+  - Semantics 정보를 다룰 수 있어야한다
+- Life-long SLAM
+  - 시간이 지날수록 map도 함께 바뀌어가며 진화해야한다
 
