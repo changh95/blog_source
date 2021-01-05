@@ -1,5 +1,5 @@
 ---
-title: CVPR 2020 - SLAM 워크샵 From SLAM to Spatial AI 발표 노트 (Prof. Andrew Davison 발표)
+title: From SLAM to Spatial AI (Prof. Andrew Davison 발표)
 date: 2020-12-26 20:38:19
 mathjax: true
 tags: 

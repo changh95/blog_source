@@ -1,5 +1,5 @@
 ---
-title: IROS 2020 - Past, Present, and Future of SLAM 튜토리얼 노트 (Prof. Luca Carlone 발표)
+title: Past, Present, and Future of SLAM (Prof. Luca Carlone 발표)
 date: 2020-12-23 20:38:19
 mathjax: true
 tags: 

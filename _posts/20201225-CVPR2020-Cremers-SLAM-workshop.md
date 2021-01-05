@@ -1,5 +1,5 @@
 ---
-title: CVPR 2020 - SLAM 워크샵 Deep Direct Visual SLAM 발표 노트 (Prof. Daniel Cremers 발표)
+title: Deep Direct Visual SLAM (Prof. Daniel Cremers 발표)
 date: 2020-12-25 20:38:19
 mathjax: true
 tags: 

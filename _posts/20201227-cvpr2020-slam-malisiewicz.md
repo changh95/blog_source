@@ -1,5 +1,5 @@
 ---
-title: CVPR 2020 - SLAM 워크샵 Deep Visual SLAM Frontends - SuperPoint, SuperGlue and SuperMaps 발표 노트 (Tomasz Malisiewicz 발표)
+title: Deep Visual SLAM Frontends - SuperPoint, SuperGlue and SuperMaps (Tomasz Malisiewicz 발표)
 date: 2020-12-27 20:38:19
 mathjax: true
 tags: 
