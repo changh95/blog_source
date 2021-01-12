@@ -426,4 +426,4 @@ endif()
   - True: 1, ON, YES, TRUE, Y, 또는 non-zero number
   - False: 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, 빈 스트링
 
-    
+     
