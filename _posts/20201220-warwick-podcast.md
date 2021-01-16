@@ -1,12 +1,12 @@
 ---
-title: 프로그래밍 공부 + LaTeX로 CV작성 + Github + 취업준비 개인 포트폴리오/블로그 관련 이모저모 (2020/12/19 워릭 대학교 팟캐스트 초청 리뷰)
+title: 워릭 대학교 팟캐스트 인터뷰 - 프로그래밍 공부 + LaTeX로 CV작성 + Github + 취업준비 개인 포트폴리오/블로그 관련 이모저모
 date: 2020-12-20 20:38:19
 tags: 
 - Seminar
-- resume
+- Resume
 - University
 categories: 
-- [Seminar]
+- [Life]
 excerpt: 2020/12/19에 진행된 워릭 대학교 팟캐스트 내용 요약 및 리뷰입니다. 주제는 1.프로그래밍과 2.취업준비 요소에 프로그래밍 적용하기(e.g. LaTeX로 CV 작성, Github, 개인 포트폴리오/블로그)였습니다.
 ---
 

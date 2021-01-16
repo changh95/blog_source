@@ -2,7 +2,8 @@
 title: Notion blog에서 Github blog로 옮기는 이유
 date: 2020-11-24 16:26:16
 tags: [blog, tech, Notion, gh-pages] 
-categories: Blog
+categories: 
+- [Life, Blog]
 excerpt: cv-learn 블로그가 Notion -> Notion + Cloudflare -> Github-pages로의 블로그 이전 과정을 소개합니다
 mathjax: false
 ---
@@ -14,6 +15,8 @@ mathjax: false
 </br>
 
 # 0. 태초에는...
+
+---
 
 가장 초기의 cv-learn은 [Notion.so](http://notion.so) 의 기본 페이지 템플릿을 사용하였습니다. Notion을 사용해서 글을 적는 것은 굉장히 편합니다. WYSIWYG (What you see is what you get) - 바로바로 눈에 보이는 대로 적을 수 있기 때문에, 의식의 흐름이 끊기지 않고 적을 수 있다는 것이 Notion의 가장 큰 장점이라고 생각합니다. Notion의 위젯도 굉장히 이쁩니다.
 

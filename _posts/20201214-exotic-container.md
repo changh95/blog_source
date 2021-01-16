@@ -8,8 +8,7 @@ tags:
 - Data Structure
 - Optimisation
 categories: 
-- [SLAM]
-- [C++]
+- [Programming, C++, 실시간 컴퓨터 비전을 위한 C++ 최적화 시리즈]
 excerpt: Davide Faconti의 CPP Optimization Diary 블로그 글 중 "Optimizing using an exotic associative container`"을 적당히 번역했습니다.
 ---
 

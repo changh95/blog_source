@@ -26,7 +26,7 @@ tags:
 - Graph processor
 - Andrew Davison
 categories: 
-- [SLAM]
+- [SLAM, 학회]
 excerpt: CVPR 2020 학회에서 Joint Workshop on Long-Term Visual Localization, Visual Odometry and Geometric and Learning-based SLAM 워크샵 중 Andrew Davison 교수님께서 발표해주신 From SLAM to Spatial AI 영상의 노트입니다. Andrew Davison 교수님 랩실의 연구를 주로 커버합니다.
 ---
 

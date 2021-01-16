@@ -6,7 +6,7 @@ tags:
 - CMake
 - C++
 categories: 
-- [C++]
+- [Programming, C++]
 excerpt: Modern Cmake - An introduction 영상을 보고 공부한 노트입니다
 ---
 
@@ -426,4 +426,8 @@ endif()
   - True: 1, ON, YES, TRUE, Y, 또는 non-zero number
   - False: 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, 빈 스트링
 
-      
+
+---
+
+이 강의는 전체적인 그림이 잘 잡히지 않는다.
+좀 더 쉬운 CMake 강의를 보고 돌아오는걸로...

@@ -14,7 +14,7 @@ tags:
 - D3VO
 - GN-Net
 categories: 
-- [SLAM]
+- [SLAM, 학회]
 excerpt: CVPR 2020 학회에서 Joint Workshop on Long-Term Visual Localization, Visual Odometry and Geometric and Learning-based SLAM 워크샵 중 Daniel Cremers 교수님께서 발표해주신 Deep Direct Visual SLAM 영상의 노트입니다. 
 ---
 
