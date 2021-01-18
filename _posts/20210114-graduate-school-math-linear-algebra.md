@@ -10,6 +10,8 @@ categories:
 excerpt: Thomas A. Garrity의 "All the Mathematics You Missed - But Need to Know for Graduate School"의 선형대수 파트 정리입니다.
 ---
 
+(**모바일은 가로로 돌려서 보시는게 편합니다**)
+
 첫장은 선형대수였고, 이 책은 '선형대수는 무엇을 하는 학문인가?' 라는 질문을 던진다.
 
 <br>
@@ -108,7 +110,7 @@ $$\quad A=\left(\begin{array}{cccc}a_{11} & a_{12} & \ldots & a_{1 n} \\\\ \vdot
 
 ---
 
-# Vector spaces와 Linear Transformation
+# 벡터 공간 (Vector spaces)와 선형변환 (Linear Transformation)
 
 ## Vector space의 정의
 
@@ -157,8 +159,24 @@ $$\quad A=\left(\begin{array}{cccc}a_{11} & a_{12} & \ldots & a_{1 n} \\\\ \vdot
 
 ## Linear transformation과 Vector subspace의 관계
 
-- $V$ 에서 $W$로의 linear transformation $T$가 있다. (i.e. $T:V \rightarrow W$)
-  - $T$의 kernel은 $ker(T) = \\{ v \in V : T(v)  = 0 \\}$이다
-  - $T$의 image는 $Im(T) = \\{ w \in W : \text{ there exists a } v \in V \text{ with } T(v) = w \\}$
+- $V$ 에서 $W$로의 linear transformation $T$가 있다면... (i.e. $T:V \rightarrow W$)
+  - $T$의 **kernel**은 $ker(T) = \\{ v \in V : T(v)  = 0 \\}$이다
+  - $T$의 **image**는 $Im(T) = \\{ w \in W : \text{ there exists a } v \in V \text{ with } T(v) = w \\}$
+- 아래 이미지에서 보이는 것과 같이,
+  - Kernel은 $V$의 subspace이다.
+  - Image는 $W$의 subspace이다.
 
 {% asset_img "kernel_image.png" "Kernel and image" %}
+
+<br>
+
+---
+
+# 기저 벡터 (Bases), 차원 (Dimension), 선형 변환 (Linear transformation)을 매트릭스로 표현하기
+
+- $V$ vector space의 **기저 벡터** $(v_1, ... , v_n)$은 **scalar scaling을 통해** $V$**의 모든 벡터를 표현**할 수 있다.
+  - $v = a_1v_1 + ... + a_nv_n$
+- $V$**의 차원은 기저 벡터의 수와 동일**하다.
+- 모든 기저벡터는 동일한 수의 element를 가지고 있다.
+  - 예시로, $\mathbb{R}$의 기저벡터는 보통 $\\{ (1,0,...,0), (0,1,0,...,0), ... , (0, ..., 0, 1) \\}
+
