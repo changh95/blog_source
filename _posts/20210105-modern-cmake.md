@@ -6,7 +6,7 @@ tags:
 - CMake
 - C++
 categories: 
-- [Programming, C++]
+- [Programming, C++, 개발]
 excerpt: Modern Cmake - An introduction 영상을 보고 공부한 노트입니다
 ---
 

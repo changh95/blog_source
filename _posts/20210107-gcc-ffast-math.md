@@ -6,7 +6,7 @@ tags:
 - C++
 - gcc
 categories: 
-- [Programming, C++]
+- [Programming, C++, 개발]
 excerpt: ffast-math, -fassociative-math, -Ofast 플래그에 대해 알아보자!
 ---
 
