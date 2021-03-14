@@ -15,12 +15,12 @@ excerpt: 나름대로 정리해본 50가지 CV/SLAM 기술면접 질문들입니
 1. [Image projection 과정에 대해서 설명해주세요. Intrisic matrix와 Extrinsic matrix도 설명해주세요.](https://changh95.github.io/20210222-image-projection/)
 2. [Monocular / Stereo / RGB-D SLAM의 특징을 설명해주세요. 각각 방식의 장점과 단점은 무엇인가요?](https://changh95.github.io/20210222-mono-stereo-rgbd/)
 3. [SLAM에서 쓸 수 있는 센서에는 어떤게 있을까요? 알고있는 센서들 각각의 작동방법과 특징과 장단점을 이야기하세요. 이들을 함께 쓰려면 어떻게 해야할까요?](https://changh95.github.io/20210228-AD-sensors/)
-4. RANSAC에 대해 설명해주세요. RANSAC의 장점과 단점도 설명해주세요. 다른 Outlier removal 기법 중 아는 방식이 있다면 설명해주세요
-5. Loop closure가 무엇인가요? 어떻게 하는건가요?
-6. Bundle adjustment에 대해서 설명해주세요
-7. Gradient descent 방식, Newton-Raphson 방식, Gauss-Newton 방식, Levenberg-Marquardt 방식 최적화 기법은 어떻게 다른가요?
+4. [RANSAC에 대해 설명해주세요. RANSAC의 장점과 단점도 설명해주세요. 다른 Outlier removal 기법 중 아는 방식이 있다면 설명해주세요](https://changh95.github.io/20210313-ransac/)
+5. [Bundle adjustment에 대해서 설명해주세요](https://changh95.github.io/20210313-ba/)
+6. [Gradient descent 방식, Newton-Raphson 방식, Gauss-Newton 방식, Levenberg-Marquardt 방식 최적화 기법은 어떻게 다른가요?](https://changh95.github.io/20210314-nonlinear-optimisation/)
+7. Loop closure가 무엇인가요? 어떻게 하는건가요?
 8. Kalman filter와 Particle filter에 대해서 설명해주세요. Kalman filter와 Extended Kalman filter의 차이도 함께 설명해주세요.
-9. Visual SLAM과 Visual-Inertial Odometry는 무슨 차이가 있나요?
+9.  Visual SLAM과 Visual-Inertial Odometry는 무슨 차이가 있나요?
 10. Tightly-coupled 방식과 Loosely-coupled 방식의 차이를 설명해주세요.
 11. Fundamental matrix 와 Essential matrix가 무엇인가요? Epipolar constraint는 무엇인가요?
 12. 실내 SLAM과 실외 SLAM은 어떤점들이 다를까요?
