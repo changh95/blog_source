@@ -1,5 +1,5 @@
 ---
-title: Past, Present, and Future of SLAM (Prof. Luca Carlone 발표)
+title: IROS 2020 - Past, Present, and Future of SLAM (Prof. Luca Carlone 발표)
 date: 2020-12-23 20:38:19
 mathjax: true
 tags: 
@@ -10,7 +10,7 @@ tags:
 - Certifiable algorithm
 - MAP estimation
 categories: 
-- [SLAM, 학회]
+- [SLAM, 학회 발표 리뷰]
 excerpt: IROS 2020 학회에서 Luca Carlone 교수님께서 발표해주신 튜토리얼 영상의 노트입니다. SLAM 기술 소개, Maximum-a-posteriori (MAP) estimation, 그리고 미래에 풀어야할 숙제들에 대해 설명합니다.
 ---
 

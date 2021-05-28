@@ -68,7 +68,8 @@ excerpt: Gradient descent, Newton-Raphson, Gauss-Newton, Levenberg-Marquardt 비
   - 첫째는, 2차 미분 값이 0이 되는 지점에서는 diverge 해버린다는 점.
   - 둘째는, Local minimum이나 local maximum에서는 값이 진동 (i.e. oscillate)한다는 점이다.
 
-![Newton-Raphson](https://postfiles.pstatic.net/MjAxODA2MDRfMTcz/MDAxNTI4MDM5MjcwMzQ3.pAx6BvzfQTyJSzDTh8zD2T8UODA6mVLt7WsocWHCK1Ag.G5ICCz33y6h9ed-vfsx4ZVR2l62P5Xlgi8k_lX-ST8wg.PNG.seokhoo/Newton-Raphson_Method.png?type=w773)
+{% asset_img "Newton-Raphson_Method.png" "Newton-Raphson" %}
+
 이미지 출처: [네이버 블로그: 도마뱀님 - C언어)Newton-Raphson Method](https://blog.naver.com/PostView.nhn?blogId=seokhoo&logNo=221290935998&parentCategoryNo=&categoryNo=63&viewDate=&isShowPopularPosts=true&from=search)
 
 &nbsp;

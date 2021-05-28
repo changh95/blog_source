@@ -1,5 +1,5 @@
 ---
-title: 2021년 2월 SLAM 뉴스 (정리중)
+title: 2021년 2월 SLAM 뉴스
 date: 2021-02-13 20:38:19
 mathjax: true
 tags: 

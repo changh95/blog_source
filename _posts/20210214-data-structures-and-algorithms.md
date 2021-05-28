@@ -7,7 +7,7 @@ tags:
 - Data structures
 - Algorithms
 categories: 
-- [Programming, 알고리즘/자료구조/SW]
+- [  SW, 알고리즘/자료구조]
 excerpt: 자료구조와 알고리즘에 대해 전반적으로 이해하기.
 ---
 

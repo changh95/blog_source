@@ -1,5 +1,5 @@
 ---
-title: Deep Direct Visual SLAM (Prof. Daniel Cremers 발표)
+title: CVPR 2020 - Deep Direct Visual SLAM (Prof. Daniel Cremers 발표)
 date: 2020-12-25 20:38:19
 mathjax: true
 tags: 
@@ -14,7 +14,7 @@ tags:
 - D3VO
 - GN-Net
 categories: 
-- [SLAM, 학회]
+- [SLAM, 학회 발표 리뷰]
 excerpt: CVPR 2020 학회에서 Joint Workshop on Long-Term Visual Localization, Visual Odometry and Geometric and Learning-based SLAM 워크샵 중 Daniel Cremers 교수님께서 발표해주신 Deep Direct Visual SLAM 영상의 노트입니다. 
 ---
 

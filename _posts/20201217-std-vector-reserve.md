@@ -6,7 +6,7 @@ tags:
 - CV
 - Optimisation
 categories: 
-- [Programming, C++]
+- [C++, 언어 공부]
 excerpt: std::vector<> vec(1000) vs vec.reserve(1000)의 차이를 알아보고, 컴퓨터 비전에서의 적용 예시를 적었습니다.
 ---
 

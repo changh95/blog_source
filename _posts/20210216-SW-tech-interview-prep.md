@@ -11,7 +11,7 @@ tags:
 - Thread
 - Process
 categories: 
-- [Programming, 알고리즘/자료구조/SW]
+- [  SW]
 excerpt: 컴공 관련 여러가지 기본적인 기술면접 질문/답변
 ---
 

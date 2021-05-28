@@ -1,5 +1,5 @@
 ---
-title: Deep Visual SLAM Frontends - SuperPoint, SuperGlue and SuperMaps (Tomasz Malisiewicz 발표)
+title: CVPR 2020 - Deep Visual SLAM Frontends - SuperPoint, SuperGlue and SuperMaps (Tomasz Malisiewicz 발표)
 date: 2020-12-27 20:38:19
 mathjax: true
 tags: 
@@ -17,7 +17,7 @@ tags:
 - SuperGlue
 - SuperMaps
 categories: 
-- [SLAM, 학회]
+- [SLAM, 학회 발표 리뷰]
 excerpt: CVPR 2020 학회에서 Joint Workshop on Long-Term Visual Localization, Visual Odometry and Geometric and Learning-based SLAM 워크샵 중 Tomasz Malisiewicz께서 발표해주신 Deep Visual SLAM Frontends - SuperPoint, SuperGlue and SuperMaps의 발표 노트입니다. Magic Leap의 최근 연구에 대해 설명합니다.
 ---
 
