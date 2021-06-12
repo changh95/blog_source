@@ -1,6 +1,6 @@
 ---
 title: About
-date: 2020-11-20 14:45:53
+date: 2021-06-10 14:45:53
 tags:
 mathjax: true
 ---
@@ -17,7 +17,8 @@ mathjax: true
   - Keypoint detection, Image retrieval, Segmentation
 
 ## 🔭 Careers
-- Research Engineer at **VIRNECT** (2019 - **PRESENT**)
+- Algorithm Engineer - Semantic SLAM at **StradVision** (2021 - **PRESENT**)
+- Research Engineer at **VIRNECT** (2019 - 2021)
 - Research Intern at the Bohndiek Lab, Cavendish Laboratory, **University of Cambridge**, UK (2019)
 - Research assistant at **McKinsey & Company** (2018)
 - Received a M.Res degree in Medical Robotics and Image-Guided Intervention at **Imperial College London**, UK (2017-2018)
