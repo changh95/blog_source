@@ -7,7 +7,7 @@ tags:
 - 이력서
 - 후기
 categories: 
-- [Life, 일상]
+- [Life, 취업을 위한 몸부림]
 excerpt: CV 작성 요령 + LaTeX로 간지나게 적기
 ---
 

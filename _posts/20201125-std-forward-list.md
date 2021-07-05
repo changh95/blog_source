@@ -7,8 +7,7 @@ tags:
 - Data structures
 - STL
 categories: 
-- [C++, 언어 공부]
-- [SW, 알고리즘/자료구조]
+- [C++, STL]
 excerpt: std::forward_list 정리
 ---
 

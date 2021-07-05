@@ -1,5 +1,5 @@
 ---
-title: Representations and Computational Patterns in Spatial AI (Prof. Andrew Davison, 3DGV Seminar)
+title: 3DGV 2021 - Representations and Computational Patterns in Spatial AI (Prof. Andrew Davison)
 date: 2021-04-07 22:14:31
 mathjax: true
 tags: 

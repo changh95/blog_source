@@ -1,5 +1,5 @@
 ---
-title: Visual-Inertial Navigation Systems - An Introduction (Patrick Geneva)
+title: ICRA 2021 - Visual-Inertial Navigation Systems - An Introduction (Patrick Geneva)
 date: 2021-05-31 22:34:42
 mathjax: true
 tags: 

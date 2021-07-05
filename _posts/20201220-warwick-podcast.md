@@ -6,7 +6,7 @@ tags:
 - Resume
 - University
 categories: 
-- [Life, 일상]
+- [Life, 취업을 위한 몸부림]
 excerpt: 2020/12/19에 진행된 워릭 대학교 팟캐스트 내용 요약 및 리뷰입니다. 주제는 1.프로그래밍과 2.취업준비 요소에 프로그래밍 적용하기(e.g. LaTeX로 CV 작성, Github, 개인 포트폴리오/블로그)였습니다.
 ---
 

@@ -8,7 +8,7 @@ tags:
 - 이직
 - 후기
 categories: 
-- [Life, 일상]
+- [Life, 취업을 위한 몸부림]
 excerpt: 쉽지 않은 이직이였다,,
 ---
 

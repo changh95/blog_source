@@ -1,5 +1,5 @@
 ---
-title: Challenges in SLAM - What's ahead (Prof. Sebastian Scherer, Tartan Series Seminar) 
+title: Tartan Series 2021 - Challenges in SLAM - What's ahead (Prof. Sebastian Scherer) 
 date: 2021-05-29 15:14:31
 mathjax: true
 tags: 
