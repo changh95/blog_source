@@ -7,7 +7,7 @@ tags:
 - Deming
 categories: 
 - [품질관리, 효율적인 Agile 개발을 위해 알아야할 품질관리 방법론 시리즈]
-excerpt: 
+excerpt: 음 아직 적고있어요
 ---
 
 ## 시작하면서...
